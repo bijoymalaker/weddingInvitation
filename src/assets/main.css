@@ -1,0 +1,66 @@
+@import url('./base.css');
+
+:root {
+  --primary-crimson: #8B0000;
+  --accent-gold: #D4AF37;
+  --bg-ivory: #FDFBF7;
+  --text-charcoal: #2B2B2B;
+}
+
+body {
+  background-color: var(--bg-ivory);
+  color: var(--text-charcoal);
+  font-family: 'SobujNolua', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .display-font {
+  font-family: 'ShuvoSondhya', serif !important;
+}
+
+.text-primary-crimson {
+  color: var(--primary-crimson) !important;
+}
+
+.text-accent-gold {
+  color: var(--accent-gold) !important;
+}
+
+.bg-primary-crimson {
+  background-color: var(--primary-crimson) !important;
+}
+
+.bg-accent-gold {
+  background-color: var(--accent-gold) !important;
+}
+
+.bg-ivory {
+  background-color: var(--bg-ivory) !important;
+}
+
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.8s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+}
