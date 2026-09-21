@@ -1,0 +1,50 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 413.54 590.81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c1121f;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-2, .cls-4, .cls-5 {
+        stroke-miterlimit: 4.73;
+      }
+
+      .cls-2 {
+        stroke-width: 3.54px;
+        stroke-dasharray: 11.82 5.91 2.36 5.91;
+      }
+
+      .cls-3 {
+        fill: #a10d18;
+      }
+
+      .cls-4, .cls-5 {
+        stroke-width: 2.36px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 11.82 5.91;
+      }
+
+      .cls-5 {
+        stroke: #fadb5f;
+        stroke-dasharray: 4.73 4.73;
+      }
+
+      .cls-6 {
+        fill: #fadb5f;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M488.05,59.08H878c6.53,0,11.82,4.81,11.82,10.74V639.14c0,5.93-5.29,10.74-11.82,10.74H488.05c-6.53,0-11.82-4.81-11.82-10.74V69.82C476.23,63.89,481.52,59.08,488.05,59.08Z" transform="translate(-476.23 -59.08)"/>
+  <path class="cls-2" d="M494,69.82h378.1a5.65,5.65,0,0,1,5.9,5.37V633.77a5.65,5.65,0,0,1-5.9,5.37H494a5.65,5.65,0,0,1-5.9-5.37V75.19A5.65,5.65,0,0,1,494,69.82Z" transform="translate(-476.23 -59.08)"/>
+  <path class="cls-3" d="M476.23,59.08q206.78,293.76,413.54,0" transform="translate(-476.23 -59.08)"/>
+  <path class="cls-4" d="M488.05,70.89q195,274.89,389.9,0" transform="translate(-476.23 -59.08)"/>
+  <path class="cls-5" d="M552.37,606.35H816.49" transform="translate(-476.23 -59.08)"/>
+  <ellipse class="cls-6" cx="208.2" cy="547.28" rx="4.73" ry="3.49"/>
+  <text x="-476.23" y="-59.08"/>  <text x="-476.23" y="-59.08"/></svg>

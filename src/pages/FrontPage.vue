@@ -3,6 +3,9 @@ import bg1 from '@/assets/images/Homepage/Home-background.svg'
 import bg2 from '@/assets/images/Homepage/Home-background-2.svg'
 import bg3 from '@/assets/images/Homepage/Home-background-3.svg'
 import bg4 from '@/assets/images/Homepage/Home-background-4.svg'
+import letterEnvelope from '@/assets/images/Homepage/letter-envolve.svg'
+import typeButton from '@/assets/images/Homepage/Type-button.svg'
+import bananaTree from '@/assets/images/Homepage/Banana-tree.svg'
 
 const emit = defineEmits(['next'])
 
@@ -24,7 +27,7 @@ const openEnvelope = () => {
         :src="bg"
         class="animated-bg-layer position-absolute top-0 start-0 w-100 h-100"
         :class="{ 'is-transparent': index > 0 }"
-        :style="{ animationDelay: `${index * 1}s` }"
+        :style="{ animationDelay: `${index * 0.2}s` }"
         alt="background"
       />
 
@@ -33,28 +36,28 @@ const openEnvelope = () => {
       <img 
         :src="bg3"
         class="side-bg animated-bg-layer position-absolute end-0 is-transparent"
-        style="top: 50%; animation-delay: 2s; transform: translateY(-50%) rotate(0deg);"
+        style="top: 50%; animation-delay: 0.4s; transform: translateY(-50%) rotate(0deg);"
         alt="side-r"
       />
       <!-- Bottom Side -->
       <img 
         :src="bg3"
         class="side-bg animated-bg-layer position-absolute bottom-0 is-transparent"
-        style="left: 50%; animation-delay: 2s; transform: translateX(-50%) rotate(90deg);"
+        style="left: 50%; animation-delay: 0.4s; transform: translateX(-50%) rotate(90deg);"
         alt="side-b"
       />
       <!-- Left Side -->
       <img 
         :src="bg3"
         class="side-bg animated-bg-layer position-absolute start-0 is-transparent"
-        style="top: 50%; animation-delay: 2s; transform: translateY(-50%) rotate(180deg);"
+        style="top: 50%; animation-delay: 0.4s; transform: translateY(-50%) rotate(180deg);"
         alt="side-l"
       />
       <!-- Top Side -->
       <img 
         :src="bg3"
         class="side-bg animated-bg-layer position-absolute top-0 is-transparent"
-        style="left: 50%; animation-delay: 2s; transform: translateX(-50%) rotate(270deg);"
+        style="left: 50%; animation-delay: 0.4s; transform: translateX(-50%) rotate(270deg);"
         alt="side-t"
       />
 
@@ -63,51 +66,68 @@ const openEnvelope = () => {
       <img 
         :src="bg4"
         class="corner-bg animated-bg-layer position-absolute bottom-0 end-0 is-transparent"
-        style="animation-delay: 3s; transform: rotate(0deg);"
+        style="animation-delay: 0.8s; transform: rotate(0deg);"
         alt="corner-br"
       />
       <!-- Bottom Left -->
       <img 
         :src="bg4"
         class="corner-bg animated-bg-layer position-absolute bottom-0 start-0 is-transparent"
-        style="animation-delay: 3s; transform: rotate(90deg);"
+        style="animation-delay: 0.8s; transform: rotate(90deg);"
         alt="corner-bl"
       />
       <!-- Top Left -->
       <img 
         :src="bg4"
         class="corner-bg animated-bg-layer position-absolute top-0 start-0 is-transparent"
-        style="animation-delay: 3s; transform: rotate(180deg);"
+        style="animation-delay: 0.8s; transform: rotate(180deg);"
         alt="corner-tl"
       />
       <!-- Top Right -->
       <img 
         :src="bg4"
         class="corner-bg animated-bg-layer position-absolute top-0 end-0 is-transparent"
-        style="animation-delay: 3s; transform: rotate(270deg);"
+        style="animation-delay: 0.8s; transform: rotate(270deg);"
         alt="corner-tr"
       />
     </div>
-
-    <!-- Overlay to ensure text readability -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-overlay" style="pointer-events: none;"></div>
-
-    <!-- Envelope Container (Content) -->
-    <div class="envelope-wrapper text-center w-100">
-      <h1 class="display-font text-primary-crimson mb-5" style="font-size: 2.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-        দেবাংশী ও শিবাংশ-র<br/>ঘর বাঁধার চিঠি
-      </h1>
       
-      <div class="envelope position-relative mx-auto" @click="openEnvelope">
-        <img src="/envelope_seal.jpg" alt="Envelope" class="img-fluid rounded shadow-lg border border-warning" style="max-width: 400px; cursor: pointer; transition: transform 0.3s ease;">
-        <div class="position-absolute top-50 start-50 translate-middle text-center w-100 seal-overlay">
-           <button class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark shadow mt-5">
-             ট্যাপ করে খুলুন
-           </button>
+    <!-- Envelope Container (Content) -->
+    <div class="envelope-wrapper d-flex justify-content-center align-items-center w-100 h-100" style="z-index: 10;">
+      <div class="floating-envelope">
+        <div class="envelope-container position-relative mx-auto" @click="openEnvelope">
+          <!-- Envelope Image -->
+          <img :src="letterEnvelope" alt="Letter Envelope" class="img-fluid w-100 envelope-img">
+          
+          <!-- Seal/Button at the top flap (Absolutely positioned) -->
+          <div class="seal-container position-absolute translate-middle-x" style="top: -20%; z-index: 20; left: 40%;">
+            <img :src="typeButton" alt="Tap to open" class="seal-btn">
+          </div>
+          
+          <!-- Text overlay on envelope -->
+          <div class="envelope-text-overlay position-absolute w-100 text-center" style="top: 60%; left: 0;">
+            <h2 class="display-font text-white mb-2 px-3" style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">দেবাংশী ও শিবাংশ-র</h2>
+            <h1 class="display-font text-warning px-3" style="font-size: 3.2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); color: #FFDF73 !important;">ঘর বাঁধার<br/>চিঠি</h1>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- Banana Trees (Layer 5 - Overlapping envelope) -->
+    <!-- Left Banana Tree (Flipped) -->
+    <img 
+      :src="bananaTree"
+      class="banana-tree left animated-bg-layer position-absolute is-transparent"
+      style="animation-delay: 1.2s;"
+      alt="banana-tree-left"
+    />
+    <!-- Right Banana Tree -->
+    <img 
+      :src="bananaTree"
+      class="banana-tree right animated-bg-layer position-absolute is-transparent"
+      style="animation-delay: 1.2s;"
+      alt="banana-tree-right"
+    />
   </div>
 </template>
 
@@ -123,7 +143,7 @@ const openEnvelope = () => {
 .animated-bg-layer {
   object-fit: cover;
   opacity: 0;
-  animation: fadeInLayer 1s ease-in-out forwards;
+  animation: fadeInLayer 0.6s ease-out forwards;
 }
 
 .is-transparent {
@@ -146,6 +166,97 @@ const openEnvelope = () => {
   object-fit: contain;
 }
 
+/* Banana Tree Decorations */
+.banana-tree {
+  height: 70vh;
+  width: auto;
+  max-width: 350px;
+  object-fit: contain;
+  top: 50%;
+  z-index: 25; /* Higher than envelope (20) to sit above it */
+  pointer-events: none; /* Crucial: Allows clicking right through the leaves to the button underneath! */
+  will-change: transform, opacity;
+}
+
+/* Desktop positioning */
+@media (min-width: 768px) {
+  .banana-tree.left {
+    right: 50%;
+    margin-right: 250px;
+    transform: translateY(-50%) scaleX(-1) translateZ(0);
+  }
+
+  .banana-tree.right {
+    left: 50%;
+    margin-left: 250px;
+    transform: translateY(-50%) translateZ(0);
+  }
+}
+
+/* Mobile positioning (Show overlapping envelope) */
+@media (max-width: 767.98px) {
+  .banana-tree {
+    height: 50vh;
+  }
+  .banana-tree.left {
+    left: 0;
+    right: auto;
+    /* Bring tree inward: -25% means mostly visible, overlapping envelope */
+    transform: translateX(-60%) translateY(-50%) scaleX(-1) translateZ(0);
+  }
+  .banana-tree.right {
+    right: 0;
+    left: auto;
+    /* Bring tree inward: 25% */
+    transform: translateX(60%) translateY(-50%) translateZ(0);
+  }
+}
+
+/* Premium Envelope Effects */
+.floating-envelope {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.envelope-container {
+  cursor: pointer;
+  max-width: 90vw;
+  width: 450px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
+}
+
+.envelope-img {
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+  /* Removed filter transition to prevent lag */
+}
+
+.envelope-container:hover {
+  transform: translateY(-5px) scale(1.02) translateZ(0);
+}
+
+/* Seal Button Effects */
+.seal-btn {
+  width: 150%;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
+}
+
+.envelope-container:hover .seal-btn {
+  transform: scale(1.15) rotate(5deg) translateZ(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
 @keyframes fadeInLayer {
   0% {
     opacity: 0;
@@ -162,7 +273,20 @@ const openEnvelope = () => {
 
 .envelope-wrapper {
   position: relative;
-  z-index: 10;
+  z-index: 20;
+  opacity: 0;
+  animation: fadeInEnvelope 1.5s ease-out 1.6s forwards;
+}
+
+@keyframes fadeInEnvelope {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .envelope:hover {
