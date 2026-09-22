@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import CountdownTimer from '../components/CountdownTimer.vue'
 import RSVPForm from '../components/RSVPForm.vue'
 import VintagePlaque from '../components/VintagePlaque.vue'
+import DatePlaque from '../components/DatePlaque.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -23,25 +24,50 @@ const showStoryModal = ref(false)
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section min-vh-100 d-flex flex-column justify-content-center align-items-center text-center p-4 pt-5">
-      <div class="mb-4 w-100">
-        <h1><VintagePlaque>মুকুটের পরিবার</VintagePlaque></h1>
-      </div>
-      <div class="image-wrapper shadow-lg rounded-5 overflow-hidden mb-5 border border-3 border-warning" style="max-width: 400px; width: 100%;">
-        <img src="/wedding_hero.jpg" alt="Bride and Groom" class="img-fluid w-100">
-      </div>
-      <h1 class="display-font text-primary-crimson mb-3" style="font-size: 3.5rem; line-height: 1.2;">
-        দেবাংশী<br/>
-        <span class="text-accent-gold fs-2">&</span><br/>
-        শিবাংশ
-      </h1>
-    </section>
+    <section class="hero-section min-vh-100 d-flex justify-content-center align-items-center pt-5 pb-5">
+      <div class="container mt-4">
+        <div class="row align-items-center justify-content-center gap-4 gap-lg-0">
+          
+          <!-- Image Column (Always top on mobile, Left on Desktop) -->
+          <div class="col-12 col-lg-5 order-1 order-lg-1 d-flex justify-content-center mb-5 mb-lg-0">
+            <!-- Decorative Arch Image Frame -->
+            <div class="hero-image-wrapper position-relative p-2" style="max-width: 420px; width: 100%;">
+              <!-- Background Gold Offset Frame -->
+              <div class="position-absolute border border-3" style="border-color: #c59b27 !important; border-radius: 200px 200px 20px 20px; top: 25px; left: 10px; right: 25px; bottom: 0px; z-index: 0; opacity: 0.8;"></div>
+              
+              <!-- Main Image -->
+              <img src="/wedding_hero.jpg" alt="Bride and Groom" class="img-fluid shadow-lg position-relative" style="border-radius: 200px 200px 20px 20px; z-index: 1; width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 8px solid white;">
+            </div>
+          </div>
 
-    <hr class="elegant-divider mx-auto my-5">
+          <!-- Text Column (Bottom on mobile, Right on Desktop) -->
+          <div class="col-12 col-lg-7 order-2 order-lg-2 d-flex flex-column align-items-center text-center">
+            
+            <!-- <div class="mb-4 w-100 d-flex justify-content-center">
+              <VintagePlaque style="max-width: 500px;">মুকুটের পরিবার</VintagePlaque>
+            </div> -->
+            
+            <div class="names-wrapper my-3">
+              <h1 class="display-font text-primary-crimson mb-2" style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1;">
+                দেবাংশী <span class="mx-3 display-font text-dark">ও</span> শিবাংশ
+              </h1>
+              <div class="text-accent-gold mb-2 d-flex justify-content-center align-items-center" style="font-size: clamp(2rem, 4vw, 3rem);">
+                <p style="font-size: clamp(4rem, 5vw, 6rem); line-height: 1.1;">।। শুভ বিবাহ ।।</p>
+             
+            </div>
+            <img src="../assets/divider/Divider-1.svg" alt="" srcset="" style="transform: rotate(180deg);" class="mx-auto d-block">
+            <div class="w-100 d-flex justify-content-center mt-2">
+              <DatePlaque><p style="font-size: clamp(2rem, 4vw, 3rem);">২৩শে নভেম্বর, ২০২৬</p></DatePlaque>
+            </div>
+            <div class="countdown-section px-4">
+              <CountdownTimer target-date="2026-11-23T00:00:00" />
+            </div>
+            
+          </div>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section px-4">
-      <CountdownTimer target-date="2026-11-23T00:00:00" />
+        </div>
+      </div>
+      </div>
     </section>
 
     <hr class="elegant-divider mx-auto my-5">
