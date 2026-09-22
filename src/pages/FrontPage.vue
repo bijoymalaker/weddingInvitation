@@ -6,13 +6,14 @@ import bg4 from '@/assets/images/Homepage/Home-background-4.svg'
 import letterEnvelope from '@/assets/images/Homepage/letter-envolve.svg'
 import typeButton from '@/assets/images/Homepage/Type-button.svg'
 import bananaTree from '@/assets/images/Homepage/Banana-tree.svg'
+import { useRouter } from 'vue-router'
 
-const emit = defineEmits(['next'])
+const router = useRouter()
 
 const mainBackgrounds = [bg1, bg2]
 
 const openEnvelope = () => {
-  emit('next')
+  router.push('/porinoy')
 }
 </script>
 

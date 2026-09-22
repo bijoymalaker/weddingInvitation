@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import CountdownTimer from './CountdownTimer.vue'
-import RSVPForm from './RSVPForm.vue'
+import CountdownTimer from '../components/CountdownTimer.vue'
+import RSVPForm from '../components/RSVPForm.vue'
+import VintagePlaque from '../components/VintagePlaque.vue'
+import { useRouter } from 'vue-router'
 
-const emit = defineEmits(['back'])
+const router = useRouter()
 
 // Modal state
 const showStoryModal = ref(false)
@@ -13,7 +15,7 @@ const showStoryModal = ref(false)
   <div class="main-view w-100 position-relative">
     <!-- Sticky Header / Back Button -->
     <div class="position-fixed top-0 start-0 p-3 z-3 w-100 d-flex justify-content-between align-items-center" style="background: linear-gradient(to bottom, rgba(253, 251, 247, 0.9), transparent);">
-      <button @click="emit('back')" class="btn btn-outline-dark rounded-circle bg-white shadow-sm" style="width: 45px; height: 45px;">
+      <button @click="router.push('/porinoy')" class="btn btn-outline-dark rounded-circle bg-white shadow-sm" style="width: 45px; height: 45px;">
         <i class="bi bi-arrow-left">←</i>
       </button>
       <div class="display-font text-primary-crimson fs-5">দেবাংশী ও শিবাংশ</div>
@@ -22,8 +24,8 @@ const showStoryModal = ref(false)
 
     <!-- Hero Section -->
     <section class="hero-section min-vh-100 d-flex flex-column justify-content-center align-items-center text-center p-4 pt-5">
-      <div class="mb-4">
-        <h2 class="display-font text-accent-gold mb-2" style="font-size: 2rem;">শুভ বিবাহ</h2>
+      <div class="mb-4 w-100">
+        <h1><VintagePlaque>মুকুটের পরিবার</VintagePlaque></h1>
       </div>
       <div class="image-wrapper shadow-lg rounded-5 overflow-hidden mb-5 border border-3 border-warning" style="max-width: 400px; width: 100%;">
         <img src="/wedding_hero.jpg" alt="Bride and Groom" class="img-fluid w-100">

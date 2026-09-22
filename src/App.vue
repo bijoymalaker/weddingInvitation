@@ -1,10 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import FrontPage from './pages/FrontPage.vue'
-import PorinoyPage from './pages/PorinoyPage.vue'
-import ViewMain from './components/ViewMain.vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
-const currentView = ref(1)
+const route = useRoute()
 const isPlaying = ref(false)
 const audioRef = ref(null)
 
@@ -19,16 +17,14 @@ onMounted(() => {
   }
 })
 
-const setView = (viewNumber) => {
-  currentView.value = viewNumber
-  
-  // Backup: Start music when the envelope is opened if autoplay was blocked
-  if (viewNumber === 2 && !isPlaying.value && audioRef.value) {
+// Backup: Start music when they navigate to the Porinoy page if autoplay was blocked
+watch(() => route.path, (newPath) => {
+  if (newPath === '/porinoy' && !isPlaying.value && audioRef.value) {
     audioRef.value.play().then(() => {
       isPlaying.value = true
     }).catch(err => console.log("Audio play failed:", err))
   }
-}
+})
 
 const toggleAudio = () => {
   if (audioRef.value) {
@@ -68,11 +64,11 @@ const toggleAudio = () => {
       </svg>
     </div>
 
-    <Transition name="fade" mode="out-in">
-      <FrontPage v-if="currentView === 1" @next="setView(2)" />
-      <PorinoyPage v-else-if="currentView === 2" @next="setView(3)" @back="setView(1)" />
-      <ViewMain v-else-if="currentView === 3" @back="setView(2)" />
-    </Transition>
+    <router-view v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
   </div>
 </template>
 

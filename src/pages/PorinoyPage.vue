@@ -4,8 +4,12 @@ import buildings from '@/assets/images/PorinoyPage/buildings-porinoy.svg'
 import car from '@/assets/images/PorinoyPage/car-porinoy.svg'
 import water from '@/assets/images/PorinoyPage/water-proinoy.svg'
 import letterOpen from '@/assets/images/PorinoyPage/Letter-Open-Porinoy.svg'
+import { useRouter } from 'vue-router'
+import VintagePlaque from '../components/VintagePlaque.vue'
+import AnimatedButterfly from '../components/AnimatedButterfly.vue'
+import BloomingFlower from '../components/BloomingFlower.vue'
 
-const emit = defineEmits(['next', 'back'])
+const router = useRouter()
 
 const bgLayers = [sky, buildings, car, water]
 </script>
@@ -34,21 +38,33 @@ const bgLayers = [sky, buildings, car, water]
       </div>
     </div>
 
+    <!-- Magical Animations (Flowers and Butterflies) -->
+    <div class="animations-layer position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style="pointer-events: none; z-index: 8;">
+      <!-- Butterflies flying across -->
+      <AnimatedButterfly :delay="1" :duration="15" :startY="60" :endY="20" :size="45" />
+      <AnimatedButterfly :delay="6" :duration="12" :startY="75" :endY="10" :size="30" color="#ff9e00" />
+      <AnimatedButterfly :delay="12" :duration="18" :startY="40" :endY="80" :size="55" color="#ff4d6d" />
+
+      <!-- Flowers blooming at the bottom -->
+      <BloomingFlower left="5vw" bottom="0vw" :delay="0.5" :size="120" petalColor="#ff4d6d" :zIndex="5" />
+      <BloomingFlower right="8vw" bottom="-2vw" :delay="1.5" :size="100" petalColor="#e63946" :zIndex="6" />
+      <BloomingFlower left="25vw" bottom="-4vw" :delay="3" :size="90" petalColor="#FFDF73" :zIndex="4" />
+      <BloomingFlower right="28vw" bottom="1vw" :delay="4.5" :size="80" petalColor="#f72585" :zIndex="4" />
+    </div>
+
     <!-- Main Content -->
     <div class="content-wrapper flex-grow-1 d-flex flex-column position-relative w-100 h-100" style="z-index: 10;">
       <div class="position-absolute top-0 start-0 p-3 z-3">
-        <button @click="emit('back')" class="btn btn-outline-dark rounded-circle bg-white shadow-sm" style="width: 45px; height: 45px;">
+        <button @click="router.push('/')" class="btn btn-outline-dark rounded-circle bg-white shadow-sm" style="width: 45px; height: 45px;">
           <i class="bi bi-arrow-left">←</i>
         </button>
       </div>
 
       <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center p-4">
-        <h2 class="display-font text-primary-crimson mb-4" style="font-size: 1.8rem; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">
-          আমাদের নতুন পথ চলা শুরু হতে চলেছে
-        </h2>
+        <VintagePlaque><p class="fs-1">২৩শে নভেম্বর ২০২৬</p></VintagePlaque>
         
         <!-- Interactive Letter Button -->
-        <div class="letter-button-wrapper mb-5" @click="emit('next')">
+        <div class="letter-button-wrapper mb-5" @click="router.push('/main')">
           <div class="letter-btn-inner">
             <img :src="letterOpen" alt="Open Letter" class="letter-btn-img img-fluid">
           </div>
@@ -57,12 +73,6 @@ const bgLayers = [sky, buildings, car, water]
             খুলতে ট্যাপ করুন
           </div>
         </div>
-
-        <h1 class="display-font text-accent-gold fw-bold mb-2" style="font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.4);">
-          শুভ পরিণয়
-        </h1>
-        <p class="fs-4 text-dark fw-bold mb-4" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">২৩শে নভেম্বর ২০২৬</p>
-        
       </div>
     </div>
   </div>
@@ -87,8 +97,8 @@ const bgLayers = [sky, buildings, car, water]
 }
 
 .letter-btn-img {
-  width: 500px;
-  max-width: 90vw;
+  width: 600px;
+  max-width: 85vw;
   filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.3s;
   will-change: transform;
