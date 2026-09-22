@@ -57,7 +57,7 @@ const showStoryModal = ref(false)
             </div>
             <img src="../assets/divider/Divider-1.svg" alt="" srcset="" style="transform: rotate(180deg);" class="mx-auto d-block">
             <div class="w-100 d-flex justify-content-center mt-2">
-              <DatePlaque><p style="font-size: clamp(2rem, 4vw, 3rem);">২৩শে নভেম্বর, ২০২৬</p></DatePlaque>
+              <DatePlaque><p style="font-size: clamp(1.5rem, 3vw, 3rem);">২৩শে নভেম্বর, ২০২৬</p></DatePlaque>
             </div>
             <div class="countdown-section px-4">
               <CountdownTimer target-date="2026-11-23T00:00:00" />
