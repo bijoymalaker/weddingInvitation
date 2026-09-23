@@ -155,14 +155,14 @@ const showWeddingModal = ref(false)
         </div>
       </div>
 
-            <p class="text-center text-muted mb-5 fs-2">আমাদের সমস্ত অনুষ্ঠান সূচি সম্পর্কে জানতে</p>
+            <!-- <p class="text-center text-muted mb-5 fs-2">আমাদের সমস্ত অনুষ্ঠান সূচি সম্পর্কে জানতে</p>
             <div class="w-100 d-flex justify-content-center mt-2">
         <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
           <VintagePlaque>
             <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">ক্লিক করুন</p>
           </VintagePlaque>
         </RouterLink>
-      </div>
+      </div> -->
 
     </section>
 
@@ -180,7 +180,7 @@ const showWeddingModal = ref(false)
         </p>
       </div>
       <img src="../assets/divider/Divider-2.svg" alt="" class="container mx-auto d-block rotate-180 my-5" style="max-width: 800px;">
-      <div class="container shadow p-0 rounded-4 overflow-hidden border" style="max-width: 1200px; aspect-ratio: 16/9;">
+      <div class="container shadow p-0 rounded-4 overflow-hidden border" style="max-width: 1200px; aspect-ratio: 4/3;">
         <p class="text-muted my-3">যেখানে আমরা আমাদের আনন্দ উদযাপন করবো…</p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.9265667362465!2d89.9006927!3d24.244346999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfb0046b0609f%3A0xa0622e2e8ec43d9c!2sKALIPUR%20MALAKAR%20BARI!5e0!3m2!1sen!2sbd!4v1790146432656!5m2!1sen!2sbd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>

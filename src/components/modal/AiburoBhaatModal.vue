@@ -2,12 +2,12 @@
   <Transition name="modal">
     <div v-if="modelValue" class="custom-modal-overlay d-flex align-items-center justify-content-center p-3 p-md-5">
       <div class="custom-modal-backdrop" @click="$emit('update:modelValue', false)"></div>
-      <div class="modal-dialog m-0 w-100" style="max-width: 800px; z-index: 1060;">
-        <div class="modal-content border-0 rounded-4 overflow-hidden" style="background: #fdfbf7; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+      <div class="modal-dialog m-0 w-100" style="max-width: 800px; z-index: 1060; max-height: 90vh;">
+        <div class="modal-content border-0 rounded-4 h-100 hide-scrollbar" style="background: #fdfbf7; box-shadow: 0 20px 50px rgba(0,0,0,0.5); overflow-y: auto; overflow-x: hidden; max-height: 90vh;">
           
           <div class="row g-0">
             <div class="col-12 col-md-5">
-              <img src="../../assets/images/MainPage/image_7296ded7.jpg" class="modal-img object-fit-cover w-100" alt="আইবুড়ো ভাত" />
+              <img src="@/assets/images/MainPage/image_7296ded7.jpg" class="modal-img object-fit-cover w-100 h-100" alt="আইবুড়ো ভাত" />
             </div>
             
             <div class="col-12 col-md-7 position-relative bg-white">
@@ -28,12 +28,20 @@
                 
                 <hr class="w-50 mx-auto" style="border-top: 2px dashed #d4af37; opacity: 0.5;">
                 
-                <p class="text-muted mt-3 fs-5" style="line-height: 1.6;">
+                <p class="text-muted mt-3 mb-0 fs-5" style="line-height: 1.6;">
                   বিয়ের আগে অবিবাহিত জীবনের শেষ আনন্দঘন ভোজ। এই বিশেষ দিনে আমরা প্রিয়জনদের সাথে আনন্দ ভাগ করে নিতে চাই।
                 </p>
               </div>
             </div>
           </div>
+          
+          <div class="w-100 p-4 bg-white border-top">
+            <h5 class="text-accent-gold mb-3 fw-bold display-font" style="font-size: 1.5rem;">অনুষ্ঠানের স্থান</h5>
+            <div class="w-100 rounded-3 overflow-hidden shadow-sm border" style="height: 250px;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.9265667362465!2d89.9006927!3d24.244346999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfb0046b0609f%3A0xa0622e2e8ec43d9c!2sKALIPUR%20MALAKAR%20BARI!5e0!3m2!1sen!2sbd!4v1790146432656!5m2!1sen!2sbd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -48,6 +56,13 @@ defineEmits(['update:modelValue'])
 </script>
 
 <style scoped>
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .custom-modal-overlay {
   position: fixed;
   top: 0;
