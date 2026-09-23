@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-container">
-    <div class="gallery">
+    <div class="gallery" ref="galleryContainer">
       <div v-for="(image, id) in images"
            :key="id"
            class="gallery__image-wrapper"
@@ -14,7 +14,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
 import img1 from '../assets/gallery/amazing-look-traditional-ritual-with-fire.jpg';
 import img2 from '../assets/gallery/hands-indian-bride-groom-intertwined-together-making-authentic-wedding-ritual.jpg';
 import img3 from '../assets/gallery/indian-bride-groom-s-hands-traditional-wedding-ceremony.jpg';
@@ -22,96 +23,88 @@ import img4 from '../assets/gallery/indian-tradition-putting-wedding-bangles.jpg
 import img5 from '../assets/gallery/wedding-ritual-putting-ring-finger-india.jpg';
 
 const IMAGES = [
+  img1,
   img2,
   img3,
   img4,
   img5,
-  img1, // Duplicate the first one to make 6 images for the grid layout
+  img2, // Duplicate to make 6 images for the grid layout
 ];
   
-  const WRAPPER_SELECTOR = 'gallery__image-wrapper';
-  const CURRENT_WRAPPER = `${ WRAPPER_SELECTOR }--selected`;
-  const TRANSITION_DURATION = 620;
-  const EASY_FN = 'cubic-bezier(0.65, 0, 0.35, 1)';
-  const DEFAULT_TRANSFORM = 'scale(1) translate3d(0, 0, 1px)';
+const WRAPPER_SELECTOR = 'gallery__image-wrapper';
+const CURRENT_WRAPPER = `${ WRAPPER_SELECTOR }--selected`;
+const TRANSITION_DURATION = 620;
+const EASY_FN = 'cubic-bezier(0.65, 0, 0.35, 1)';
+const DEFAULT_TRANSFORM = 'scale(1) translate3d(0, 0, 1px)';
 
-  export default {
-    mounted() {
-      // Use querySelectorAll to safely get only elements, avoiding text nodes
-      this.wrapperElements = Array.from(this.$el.querySelectorAll('.gallery__image-wrapper'));
-      
-      this.selectImage(0);
-      setTimeout(() => {
-        this.selectImage(IMAGES.length - 1);
-      }, 1000);
-    },
-    data() {
-      return {
-        images: IMAGES.map((url, id) => ({
-          id,
-          url,
-          alt: `alt-${ id }`,
-          title: `title-${ id }`
-        })),
-        selectedImageId: undefined
-      };
-    },
-    methods: {
-      selectImage(id) {
-        this.selectedImageId = id;
-        
-        // Refresh the elements list to be safe
-        this.wrapperElements = Array.from(this.$el.querySelectorAll('.gallery__image-wrapper'));
-        const currentElement = this.wrapperElements[id];
-        
-        if (!currentElement) return;
-        
-        // We're going to reverse the process.
-        // Firstly, apply classes to let the browser calculate a new state.
-        // Secondly, calculate the difference between the previous and the current states.
-        // Thirdly, apply the inverted transformation to an element (so it'll look exactly like in the start).
-        // Then fourthly, reset the transformation on a next tick (to let the browser notice the changes).
-        
-        // Get the elements rects
-        const prevRects = this.wrapperElements.map(
-          (child) => child.getBoundingClientRect()
-        );
-        
-        // Remove "selected" class, transitions and transforms from every element
-        this.wrapperElements.forEach((child, i) => {
-          child.style.transition = 'none';
-          child.style.transform = DEFAULT_TRANSFORM;
-            
-          child.classList.remove(CURRENT_WRAPPER);
-        });
-        
-        // Set the current element as selected
-        currentElement.classList.add(CURRENT_WRAPPER);
-        
-        this.wrapperElements.forEach((child, i) =>  {
-          const prevRect = prevRects[i];
-          const newRect = child.getBoundingClientRect();
-         
-          // Calculate the difference between the element states
-          const scale = prevRect.width / newRect.width;
-          const x = (prevRect.x - newRect.x) * 1 / scale;
-          const y = (prevRect.y - newRect.y) * 1 / scale;
-          
-          // Apply the calculated transfomation
-          child.style.transform = `
-            scale(${ scale })
-            translate3d(${ x }px, ${ y }px, 1px)
-          `;
-          
-          // Reset the transformation on a next tick
-          setTimeout(() => {
-            child.style.transition = `all ${ TRANSITION_DURATION }ms ${ EASY_FN }`;
-            child.style.transform = DEFAULT_TRANSFORM;
-          }, 0);
-        });
-      }
-    }
-  };
+const images = ref(IMAGES.map((url, id) => ({
+  id,
+  url,
+  alt: `alt-${ id }`,
+  title: `title-${ id }`
+})));
+
+const selectedImageId = ref(undefined);
+const galleryContainer = ref(null);
+
+const selectImage = (id) => {
+  selectedImageId.value = id;
+  
+  if (!galleryContainer.value) return;
+  
+  const wrapperElements = Array.from(galleryContainer.value.querySelectorAll('.gallery__image-wrapper'));
+  const currentElement = wrapperElements[id];
+  
+  if (!currentElement) return;
+  
+  // We're going to reverse the process.
+  // Firstly, apply classes to let the browser calculate a new state.
+  // Secondly, calculate the difference between the previous and the current states.
+  // Thirdly, apply the inverted transformation to an element (so it'll look exactly like in the start).
+  // Then fourthly, reset the transformation on a next tick (to let the browser notice the changes).
+  
+  // Get the elements rects
+  const prevRects = wrapperElements.map((child) => child.getBoundingClientRect());
+  
+  // Remove "selected" class, transitions and transforms from every element
+  wrapperElements.forEach((child) => {
+    child.style.transition = 'none';
+    child.style.transform = DEFAULT_TRANSFORM;
+    child.classList.remove(CURRENT_WRAPPER);
+  });
+  
+  // Set the current element as selected
+  currentElement.classList.add(CURRENT_WRAPPER);
+  
+  wrapperElements.forEach((child, i) => {
+    const prevRect = prevRects[i];
+    const newRect = child.getBoundingClientRect();
+   
+    // Calculate the difference between the element states
+    const scale = prevRect.width / newRect.width;
+    const x = (prevRect.x - newRect.x) * 1 / scale;
+    const y = (prevRect.y - newRect.y) * 1 / scale;
+    
+    // Apply the calculated transfomation
+    child.style.transform = `
+      scale(${ scale })
+      translate3d(${ x }px, ${ y }px, 1px)
+    `;
+    
+    // Reset the transformation on a next tick
+    setTimeout(() => {
+      child.style.transition = `all ${ TRANSITION_DURATION }ms ${ EASY_FN }`;
+      child.style.transform = DEFAULT_TRANSFORM;
+    }, 0);
+  });
+};
+
+onMounted(() => {
+  selectImage(0);
+  setTimeout(() => {
+    selectImage(IMAGES.length - 1);
+  }, 1000);
+});
 </script>
 
 <style lang="scss" scoped>
