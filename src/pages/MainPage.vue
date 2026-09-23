@@ -4,6 +4,7 @@ import CountdownTimer from '../components/CountdownTimer.vue'
 import RSVPForm from '../components/RSVPForm.vue'
 import VintagePlaque from '../components/VintagePlaque.vue'
 import DatePlaque from '../components/DatePlaque.vue'
+import AnimatedStoryImage from '../components/AnimatedStoryImage.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -70,18 +71,26 @@ const showStoryModal = ref(false)
       </div>
     </section>
 
-    <hr class="elegant-divider mx-auto my-5">
+    <hr class="elegant-divider mx-auto">
 
     <!-- Our Story Section -->
-    <section class="story-section text-center px-4 py-5">
-      <h2 class="display-font text-primary-crimson mb-4" style="font-size: 2.5rem;">আমাদের গল্প</h2>
-      <p class="text-muted fs-5 mb-4 max-w-md mx-auto" style="max-width: 600px;">
+    <section class="story-section text-center px-4 py-5" style="background-color: #500000;">
+      <div class="container d-flex flex-column align-items-center mb-5">
+        <AnimatedStoryImage class="w-100" />
+      </div>
+      <div class="">
+      <h2 class="text-accent-gold" style="font-size: clamp(2.5rem, 4vw, 3rem); line-height: 1.1;">আমাদের গল্প</h2>
+      <p class="text-accent-gold fs-5 mb-4 max-w-md mx-auto" style="max-width: 600px;">
         দুটো মনের মিলন আর দুটি পরিবারের মেলবন্ধন। আমাদের এই নতুন পথচলায় আপনাদের আশীর্বাদ কাম্য।
       </p>
-      
-      <button @click="showStoryModal = true" class="btn btn-outline-primary rounded-pill px-4 py-2 custom-btn-outline">
-        আমাদের পরিচয় পর্ব জানতে এখানে ক্লিক করুন
-      </button>
+      <div class="w-100 d-flex justify-content-center mt-2">
+        <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
+          <VintagePlaque>
+            <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">ক্লিক করুন</p>
+          </VintagePlaque>
+        </RouterLink>
+      </div>
+      </div>
     </section>
 
     <hr class="elegant-divider mx-auto my-5">
@@ -225,5 +234,20 @@ const showStoryModal = ref(false)
 .floral-border {
   height: 20px;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" fill="%23D4AF37"><circle cx="50" cy="10" r="3"/><circle cx="40" cy="10" r="2"/><circle cx="60" cy="10" r="2"/></svg>') repeat-x center;
+}
+
+.continuous-pulse {
+  animation: gentlePulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes gentlePulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+  }
+  100% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+  }
 }
 </style>
