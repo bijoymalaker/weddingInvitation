@@ -92,7 +92,7 @@ const showWeddingModal = ref(false)
         দুটো মনের মিলন আর দুটি পরিবারের মেলবন্ধন। আমাদের এই নতুন পথচলায় আপনাদের আশীর্বাদ কাম্য।
       </p>
       <div class="w-100 d-flex justify-content-center mt-2">
-        <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
+        <RouterLink to="/" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
           <VintagePlaque>
             <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">ক্লিক করুন</p>
           </VintagePlaque>
@@ -225,7 +225,7 @@ const showWeddingModal = ref(false)
 
     <!-- Footer -->
     <footer class="footer-section text-center py-5 mt-5 position-relative" style="background-color: #500000; color: #faecd9;">
-      <h3 class="display-font mb-4 fw-light">Designed by InviteOn</h3>
+      <h3 class="display-font mb-4 fw-light">Designed by Bijoy Malaker</h3>
       <!-- <p class="mb-2">বিনীত</p>
       <p class="fw-bold fs-5 mb-0 display-font">বসু ও মুখার্জী পরিবার</p> -->
       
