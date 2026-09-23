@@ -259,13 +259,13 @@ const showWeddingModal = ref(false)
           </div>
       </div>
     </div>
+    </div>
 
     <!-- Event Modals -->
     <InvitationModal v-model="showInvitationModal" />
     <AiburoBhaatModal v-model="showAiburoBhaatModal" />
     <GayeHoludModal v-model="showGayeHoludModal" />
     <WeddingModal v-model="showWeddingModal" />
-    </div>
   </div>
 </template>
 
