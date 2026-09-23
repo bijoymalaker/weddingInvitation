@@ -4,6 +4,7 @@ import CountdownTimer from '../components/CountdownTimer.vue'
 import RSVPForm from '../components/RSVPForm.vue'
 import VintagePlaque from '../components/VintagePlaque.vue'
 import DatePlaque from '../components/DatePlaque.vue'
+import ImgGallery from '../components/ImgGallery.vue'
 import AnimatedStoryImage from '../components/AnimatedStoryImage.vue'
 import { useRouter } from 'vue-router'
 
@@ -71,7 +72,7 @@ const showStoryModal = ref(false)
       </div>
     </section>
 
-    <hr class="elegant-divider mx-auto">
+    <!-- <hr class="elegant-divider mx-auto"> -->
 
     <!-- Our Story Section -->
     <section class="story-section text-center px-4 py-5" style="background-color: #500000;">
@@ -93,54 +94,74 @@ const showStoryModal = ref(false)
       </div>
     </section>
 
-    <hr class="elegant-divider mx-auto my-5">
+    <!-- <hr class="elegant-divider mx-auto my-5"> -->
 
     <!-- Event Schedule Section -->
     <section class="schedule-section px-4 py-5" style="background-color: #fcf8ef;">
-      <h2 class="display-font text-center text-primary-crimson mb-5" style="font-size: 2.5rem;">স্মারকলিপি</h2>
-      <p class="text-center text-muted mb-5">আমাদের সমস্ত অনুষ্ঠান সূচি সম্পর্কে জানতে</p>
+      <h2 class="display-font text-center text-primary-crimson mb-5" style="font-size: 2.5rem;">|| স্মারকলিপি ||</h2>
+
       
       <div class="container" style="max-width: 800px;">
         <!-- Card 1 -->
-        <div class="card event-card border-0 shadow-sm mb-4 rounded-4 overflow-hidden">
-          <div class="row g-0">
-            <div class="col-md-4 bg-primary-crimson d-flex flex-column justify-content-center align-items-center text-white p-4">
-              <h4 class="display-font mb-0">আইবুড়ো ভাত পর্ব</h4>
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+          <div class="row g-0 h-100">
+            <div class="col-md-5">
+              <img src="../assets/images/MainPage/image_7296ded7.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="আইবুড়ো ভাত" />
             </div>
-            <div class="col-md-8 p-4 d-flex flex-column justify-content-center">
+            <div class="col-md-7 p-4 p-md-5 d-flex flex-column justify-content-center bg-primary-crimson text-white">
+              <h3 class="display-font text-accent-gold mb-3 fw-bold" style="font-size: 2.2rem;">আইবুড়ো ভাত পর্ব</h3>
               <p class="fs-5 fw-bold mb-1">২১শে নভেম্বর ২০২৬</p>
-              <p class="text-muted mb-0">দুপুর ১:০০ টা থেকে</p>
+              <p class="fs-5 text-white-50 mb-3">দুপুর ১:০০ টা থেকে</p>
+              <hr class="mt-3 mb-0" style="border-top: 2px dashed #d4af37; opacity: 0.5;">
             </div>
           </div>
         </div>
         
         <!-- Card 2 -->
-        <div class="card event-card border-0 shadow-sm mb-4 rounded-4 overflow-hidden">
-          <div class="row g-0 flex-md-row-reverse">
-            <div class="col-md-4 bg-accent-gold d-flex flex-column justify-content-center align-items-center text-dark p-4">
-              <h4 class="display-font mb-0 fw-bold">গায়ে হলুদ পর্ব</h4>
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+          <div class="row g-0 h-100 flex-md-row-reverse">
+            <div class="col-md-5">
+              <img src="../assets/images/MainPage/image_d7a65b5b.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="গায়ে হলুদ" />
             </div>
-            <div class="col-md-8 p-4 d-flex flex-column justify-content-center text-md-end">
+            <div class="col-md-7 p-4 p-md-5 d-flex flex-column justify-content-center bg-accent-gold text-dark text-md-end">
+              <h3 class="display-font text-primary-crimson mb-3 fw-bold" style="font-size: 2.2rem;">গায়ে হলুদ পর্ব</h3>
               <p class="fs-5 fw-bold mb-1">২২শে নভেম্বর ২০২৬</p>
-              <p class="text-muted mb-0">সকাল ১০:০০ টা থেকে</p>
+              <p class="fs-5 mb-3" style="opacity: 0.75;">সকাল ১০:০০ টা থেকে</p>
+              <hr class="mt-3 mb-0" style="border-top: 2px dashed #4a130c; opacity: 0.3;">
             </div>
           </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="card event-card border-0 shadow-sm mb-4 rounded-4 overflow-hidden border border-warning">
-          <div class="row g-0">
-            <div class="col-md-4 bg-primary-crimson d-flex flex-column justify-content-center align-items-center text-white p-4">
-              <h4 class="display-font mb-0">শুভ বিবাহ পর্ব</h4>
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+          <div class="row g-0 h-100">
+            <div class="col-md-5">
+              <img src="../assets/images/MainPage/image_8bdea5d0.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="শুভ বিবাহ" />
             </div>
-            <div class="col-md-8 p-4 d-flex flex-column justify-content-center">
-              <p class="fs-5 fw-bold mb-1 text-accent-gold">২৩শে নভেম্বর ২০২৬</p>
-              <p class="text-muted mb-0">সন্ধ্যা ৭:০০ টা থেকে</p>
+            <div class="col-md-7 p-4 p-md-5 d-flex flex-column justify-content-center bg-primary-crimson text-white">
+              <h3 class="display-font text-accent-gold mb-3 fw-bold" style="font-size: 2.2rem;">শুভ বিবাহ পর্ব</h3>
+              <p class="fs-4 fw-bold mb-1">২৩শে নভেম্বর ২০২৬</p>
+              <p class="fs-5 text-white-50 mb-3">সন্ধ্যা ৭:০০ টা থেকে</p>
+              <hr class="mt-3 mb-0" style="border-top: 2px dashed #d4af37; opacity: 0.5;">
             </div>
           </div>
         </div>
       </div>
+
+            <p class="text-center text-muted mb-5 fs-2">আমাদের সমস্ত অনুষ্ঠান সূচি সম্পর্কে জানতে</p>
+            <div class="w-100 d-flex justify-content-center mt-2">
+        <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
+          <VintagePlaque>
+            <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">ক্লিক করুন</p>
+          </VintagePlaque>
+        </RouterLink>
+      </div>
+
     </section>
+
+    <img src="../assets/divider/Divider-1.svg" alt="" class="container mx-auto d-block rotate-180">
+
+    <ImgGallery />
 
     <!-- Location Section -->
     <section class="location-section px-4 py-5 text-center">
