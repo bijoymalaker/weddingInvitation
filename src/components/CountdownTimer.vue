@@ -39,6 +39,7 @@ onUnmounted(() => {
 <template>
   <div class="countdown-container py-4">
     <h3 class="display-font text-center text-primary-crimson mb-4">আর মাত্র সময় বাকি!</h3>
+    <img class="mx-auto d-block mb-4" src="../assets/divider/Divider-2.svg" alt="">
     <div class="d-flex justify-content-center gap-3 gap-md-4 text-center">
       <div class="time-box">
         <div class="fs-1 fw-bold text-accent-gold">{{ days }}</div>

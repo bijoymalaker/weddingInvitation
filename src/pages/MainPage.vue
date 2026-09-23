@@ -48,16 +48,16 @@ const showStoryModal = ref(false)
             </div> -->
             
             <div class="names-wrapper my-3">
-              <h1 class="display-font text-primary-crimson mb-2" style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1;">
+              <h2 class="display-font text-primary-crimson mb-2" style="font-size: clamp(3rem, 6vw, 4rem); line-height: 1.1;">
                 দেবাংশী <span class="mx-3 display-font text-dark">ও</span> শিবাংশ
-              </h1>
+              </h2>
               <div class="text-accent-gold mb-2 d-flex justify-content-center align-items-center" style="font-size: clamp(2rem, 4vw, 3rem);">
-                <p style="font-size: clamp(4rem, 5vw, 6rem); line-height: 1.1;">।। শুভ বিবাহ ।।</p>
+                <p style="font-size: clamp(3rem, 4vw, 4rem); line-height: 1.1;">।। শুভ বিবাহ ।।</p>
              
             </div>
             <img src="../assets/divider/Divider-1.svg" alt="" srcset="" style="transform: rotate(180deg);" class="mx-auto d-block">
             <div class="w-100 d-flex justify-content-center mt-2">
-              <DatePlaque><p style="font-size: clamp(1.5rem, 3vw, 3rem);">২৩শে নভেম্বর, ২০২৬</p></DatePlaque>
+              <DatePlaque><p style="font-size: clamp(1.5rem, 3vw, 2rem);" class="m-0">২৩শে নভেম্বর, ২০২৬</p></DatePlaque>
             </div>
             <div class="countdown-section px-4">
               <CountdownTimer target-date="2026-11-23T00:00:00" />
