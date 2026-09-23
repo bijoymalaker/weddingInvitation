@@ -1,17 +1,25 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import CountdownTimer from '../components/CountdownTimer.vue'
 import RSVPForm from '../components/RSVPForm.vue'
 import VintagePlaque from '../components/VintagePlaque.vue'
 import DatePlaque from '../components/DatePlaque.vue'
 import ImgGallery from '../components/ImgGallery.vue'
 import AnimatedStoryImage from '../components/AnimatedStoryImage.vue'
-import { useRouter } from 'vue-router'
+import InvitationModal from '../components/modal/InvitationModal.vue'
+import AiburoBhaatModal from '../components/modal/AiburoBhaatModal.vue'
+import GayeHoludModal from '../components/modal/GayeHoludModal.vue'
+import WeddingModal from '../components/modal/WeddingModal.vue'
 
 const router = useRouter()
 
-// Modal state
+// Modal states
 const showStoryModal = ref(false)
+const showInvitationModal = ref(false)
+const showAiburoBhaatModal = ref(false)
+const showGayeHoludModal = ref(false)
+const showWeddingModal = ref(false)
 </script>
 
 <template>
@@ -55,7 +63,7 @@ const showStoryModal = ref(false)
               </h2>
               <div class="text-accent-gold mb-2 d-flex justify-content-center align-items-center" style="font-size: clamp(2rem, 4vw, 3rem);">
                 <p style="font-size: clamp(3rem, 4vw, 4rem); line-height: 1.1;">।। শুভ বিবাহ ।।</p>
-             
+              </div>
             </div>
             <img src="../assets/divider/Divider-1.svg" alt="" srcset="" style="transform: rotate(180deg);" class="mx-auto d-block">
             <div class="w-100 d-flex justify-content-center mt-2">
@@ -68,7 +76,6 @@ const showStoryModal = ref(false)
           </div>
 
         </div>
-      </div>
       </div>
     </section>
 
@@ -103,7 +110,7 @@ const showStoryModal = ref(false)
       
       <div class="container" style="max-width: 800px;">
         <!-- Card 1 -->
-        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative" style="cursor: pointer;" @click="showAiburoBhaatModal = true">
           <div class="row g-0 h-100">
             <div class="col-md-5">
               <img src="../assets/images/MainPage/image_7296ded7.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="আইবুড়ো ভাত" />
@@ -118,7 +125,7 @@ const showStoryModal = ref(false)
         </div>
         
         <!-- Card 2 -->
-        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative" style="cursor: pointer;" @click="showGayeHoludModal = true">
           <div class="row g-0 h-100 flex-md-row-reverse">
             <div class="col-md-5">
               <img src="../assets/images/MainPage/image_d7a65b5b.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="গায়ে হলুদ" />
@@ -133,7 +140,7 @@ const showStoryModal = ref(false)
         </div>
 
         <!-- Card 3 -->
-        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative">
+        <div class="card event-card border-0 shadow-lg mb-5 rounded-4 overflow-hidden position-relative" style="cursor: pointer;" @click="showWeddingModal = true">
           <div class="row g-0 h-100">
             <div class="col-md-5">
               <img src="../assets/images/MainPage/image_8bdea5d0.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 250px;" alt="শুভ বিবাহ" />
@@ -184,11 +191,11 @@ const showStoryModal = ref(false)
     <section class="rsvp-wrapper px-4 py-5" style="background: #4a130c;">
       <RSVPForm />
       <div class="w-100 d-flex justify-content-center mt-2">
-        <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
+        <div type="button" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;" @click="showInvitationModal = true">
           <VintagePlaque>
             <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">নিমন্ত্রণ পত্র</p>
           </VintagePlaque>
-        </RouterLink>
+        </div>
       </div>
     </section>
     
@@ -250,10 +257,15 @@ const showStoryModal = ref(false)
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
 
+    <!-- Event Modals -->
+    <InvitationModal v-model="showInvitationModal" />
+    <AiburoBhaatModal v-model="showAiburoBhaatModal" />
+    <GayeHoludModal v-model="showGayeHoludModal" />
+    <WeddingModal v-model="showWeddingModal" />
+    </div>
   </div>
 </template>
 
