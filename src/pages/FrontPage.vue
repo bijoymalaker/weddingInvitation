@@ -68,7 +68,9 @@ const openEnvelope = () => {
           </div>
 
           <!-- Text overlay on envelope -->
-          <div class="envelope-text-overlay position-absolute w-100 text-center" style="top: 60%; left: 0;">
+          <div class="envelope-text-overlay position-absolute w-100 text-center" style="top: 50%; left: 0;">
+            <h1 class="display-font text-white mb-2 px-3"
+              >শ্রী শ্রী প্রজাপতয়ে নমঃ</h1>
             <h2 class="display-font text-white mb-2 px-3"
               style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">দেবাংশী ও শিবাংশ-র</h2>
             <h1 class="display-font text-warning px-3"

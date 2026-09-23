@@ -165,34 +165,62 @@ const showStoryModal = ref(false)
 
     <!-- Location Section -->
     <section class="location-section px-4 py-5 text-center">
+      <img src="../assets/divider/Divider-2.svg" alt="" class="container mx-auto d-block rotate-180 my-5" style="max-width: 800px;">
       <h2 class="display-font text-primary-crimson mb-4" style="font-size: 2.5rem;">বিবাহ বাসর</h2>
-      <p class="text-muted mb-5">যেখানে আমরা আমাদের আনন্দ উদযাপন করবো…</p>
-      
-      <div class="container shadow p-0 rounded-4 overflow-hidden border" style="max-width: 800px;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d117925.3343992775!2d88.26495111005727!3d22.535406374533036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-          width="100%" 
-          height="350" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div style="color: #4a130c;">
+        <h2 class="mb-3" style="font-size: 3.5rem;">"মালাকার বাড়ি"</h2>
+        <p class="text-muted my-3 fs-4">কালিপুর, দিঘুলিয়া, টাঙ্গাইল সদর, টাঙ্গাইল
+        </p>
+      </div>
+      <img src="../assets/divider/Divider-2.svg" alt="" class="container mx-auto d-block rotate-180 my-5" style="max-width: 800px;">
+      <div class="container shadow p-0 rounded-4 overflow-hidden border" style="max-width: 1200px; aspect-ratio: 16/9;">
+        <p class="text-muted my-3">যেখানে আমরা আমাদের আনন্দ উদযাপন করবো…</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.9265667362465!2d89.9006927!3d24.244346999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfb0046b0609f%3A0xa0622e2e8ec43d9c!2sKALIPUR%20MALAKAR%20BARI!5e0!3m2!1sen!2sbd!4v1790146432656!5m2!1sen!2sbd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </section>
 
-    <hr class="elegant-divider mx-auto my-5">
 
     <!-- RSVP Section -->
-    <section class="rsvp-wrapper px-4">
+    <section class="rsvp-wrapper px-4 py-5" style="background: #4a130c;">
       <RSVPForm />
+      <div class="w-100 d-flex justify-content-center mt-2">
+        <RouterLink to="/story" class="d-block text-decoration-none mb-4 continuous-pulse" style="width: 100%; max-width: 300px;">
+          <VintagePlaque>
+            <p class="text-accent-gold m-0 fw-bold" style="font-size: 1.8rem; letter-spacing: 1px; padding-bottom: 5px;">নিমন্ত্রণ পত্র</p>
+          </VintagePlaque>
+        </RouterLink>
+      </div>
     </section>
+    
+
+    <div class="wedding-divider-repeat w-100"></div>
+
+    <!-- Image with Text Section -->
+    <section class="image-text-section px-4 py-5" style="background-color: #fdfbf7;">
+      <div class="container" style="max-width: 1000px;">
+        <div class="row align-items-center shadow-lg rounded-5 overflow-hidden bg-white">
+          <div class="col-md-6 p-0">
+            <img src="../assets/gallery/image_20c4eb97.jpg" alt="Wedding Ritual" class="w-100 h-100 object-fit-cover" style="min-height: 400px; aspect-ratio: 4/5;">
+          </div>
+          <div class="col-md-6 p-5 p-lg-5 text-center text-md-start d-flex flex-column justify-content-center">
+            <h2 class="display-font text-primary-crimson mb-4" style="font-size: 2.8rem;">আশীর্বাদ ও শুভকামনা</h2>
+            <p class="fs-5 text-muted mb-4" style="line-height: 1.8;">
+              জীবনের এই নতুন অধ্যায়ে পা রাখার মুহূর্তে আমরা আপনাদের উপস্থিতি ও আশীর্বাদ একান্তভাবে কামনা করছি। আপনাদের পদধূলিতে আমাদের বিবাহ বাসর হয়ে উঠুক আনন্দমুখর।
+            </p>
+            <p class="fs-3 text-accent-gold fw-bold mb-0 display-font mt-3">
+              অপেক্ষায় রইলাম...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="footer-section text-center py-5 mt-5 position-relative" style="background-color: #500000; color: #faecd9;">
-      <h3 class="display-font mb-4 fw-light">শ্রী শ্রী প্রজাপতয়ে নমঃ</h3>
-      <p class="mb-2">বিনীত</p>
-      <p class="fw-bold fs-5 mb-0 display-font">বসু ও মুখার্জী পরিবার</p>
+      <h3 class="display-font mb-4 fw-light">Designed by InviteOn</h3>
+      <!-- <p class="mb-2">বিনীত</p>
+      <p class="fw-bold fs-5 mb-0 display-font">বসু ও মুখার্জী পরিবার</p> -->
       
       <div class="floral-border mt-4"></div>
     </footer>
@@ -259,6 +287,14 @@ const showStoryModal = ref(false)
 
 .continuous-pulse {
   animation: gentlePulse 1s infinite alternate ease-in-out;
+}
+
+.wedding-divider-repeat {
+  height: 120px;
+  background-image: url('../assets/divider/wedding_divider.svg');
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%;
 }
 
 @keyframes gentlePulse {

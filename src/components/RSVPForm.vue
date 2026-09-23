@@ -46,7 +46,7 @@ const submitForm = () => {
         <input type="number" class="form-control form-control-lg custom-input" id="guests" v-model="formData.guests" min="1" max="10" required>
       </div>
 
-      <button type="submit" class="btn btn-primary-crimson w-100 rounded-pill py-3 fs-5 text-white fw-bold shadow">
+      <button type="submit" class="btn btn-warning w-100 rounded-pill py-3 fs-5 text-white fw-bold shadow">
         নিমন্ত্রণ পত্র জমা দিন
       </button>
     </form>
